@@ -1,0 +1,19 @@
+{% if DEFAULT_PAGINATION %}
+
+{% if articles_page.has_next() or articles_page.has_previous() %}
+<div class="paginator">
+    {% if articles_page.has_previous() %}
+        <a href="{{ SITEURL }}/{{ articles_previous_page.url }}" class="rounded-button">&larr; Newer</a>
+    {% else %}
+         <span class="rounded-button">&larr; Newer</span>
+    {% endif %}
+    <span class="rounded-button">{{ articles_page.number }} / {{ articles_paginator.num_pages }}</span>
+    {% if articles_page.has_next() %}
+    <a href="{{ SITEURL }}/{{ articles_next_page.url }}" class="rounded-button">Older &rarr;</a>
+    {% else %}
+         <span class="rounded-button">Older &rarr;</span>
+    {% endif %}
+</div>
+{% endif %}
+
+{% endif %}

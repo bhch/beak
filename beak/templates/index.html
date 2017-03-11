@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+<!-- <h1 class="content-subhead">Pinned Post</h1> -->
+
+{% block content %}
+{% block page_heading %}{% endblock %}
+<div class="post-list">
+{% if articles %}
+    {% for article in articles_page.object_list %}        
+        <section class="post">
+            <header class="post-header">
+                <h2 class="post-title"><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></h2>
+                {% include "article_meta.html" %}
+            </header>
+
+            <div class="post-description">
+                <p>{{ article.summary }}</p>
+                <p><a href="{{ SITEURL }}/{{ article.url }}" class="rounded-button">Read more &rarr;</a></p>
+            </div>
+        </section>
+    {% endfor %}
+{% endif %}
+</div>
+{% endblock content %}
+
+{% if articles_page.has_next() or articles_page.has_previous() %}
+{% block footnote %}
+    {% include 'pagination.html' %}
+{% endblock %}
+{% endif %}
+

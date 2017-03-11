@@ -1,0 +1,23 @@
+<p class="post-meta">
+    {{ article.locale_date }}
+    {% if article.modified %}
+        <strong>&nbsp; &middot; &nbsp;</strong> 
+        updated {{ article.locale_modified }}
+    {% endif %}
+
+    {% if SHOW_POST_CATEGORY and article.category %}
+        <strong>&nbsp; &middot; &nbsp;</strong> 
+        <a href="{{ SITEURL }}/{{ article.category.url }}" class="faded-link" >{{ article.category }}</a>
+    {% endif %}
+    {% if SHOW_POST_TAGS and article.tags %}
+        <strong>&nbsp; &middot; &nbsp;</strong>
+        <span class="tags">
+            {% for tag in article.tags %}
+                <a href="{{ SITEURL }}/{{ tag.url }}" class="tag">{{ tag }}</a>
+            {% endfor %}
+        </span>
+    {% endif %}
+</p>
+{% if SHOW_POST_AUTHOR %}
+<p class="post-meta">by {{ article.author }}</p>
+{% endif %}

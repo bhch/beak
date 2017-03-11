@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ article.title|striptags }} - {% endblock title %}
+
+{% block content %}
+
+<section class="post">
+    <header class="post-header">
+
+        <h1 class="post-title">{{ article.title }}</h1>
+        {% include 'article_meta.html' %}
+    </header>
+
+    <div class="post-description">
+        {{ article.content }}
+    </div>
+</section>
+
+{% if DISQUS_SITENAME and SITEURL and article.status != "draft" %}
+    <div class="comments">
+      <div id="disqus_thread"></div>
+      <script type="text/javascript">
+        var disqus_shortname = '{{ DISQUS_SITENAME }}';
+        var disqus_identifier = '{{ article.url }}';
+        var disqus_url = '{{ SITEURL }}/{{ article.url }}';
+        (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//{{ DISQUS_SITENAME }}.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+      </script>
+      <noscript>Please enable JavaScript to view the comments.</noscript>
+    </div>
+    {% endif %}
+{% endblock content %}

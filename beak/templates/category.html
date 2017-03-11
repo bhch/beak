@@ -1,0 +1,13 @@
+{% extends "index.html" %}
+
+{% block title %}Category '{{ category }}' - {% endblock title %}
+
+
+{% block page_heading %}
+<section class="post">
+    <header class="post-header">
+        <h1 class="post-title">Category '{{ category }}'</h1>
+        <p class="post-meta"><a class="tag" href="{{ SITEURL }}/{{ CATEGORIES_URL }}">&larr; All categories</a></p>
+    </header>
+</section>
+{% endblock %}
