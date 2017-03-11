@@ -1,8 +1,8 @@
 # beak
 
-A blindingly beautiful theme for Pelican
+A blindingly beautiful theme for Pelican.
 
-[http://bitbucket.org/bhch/beak/](http://bitbucket.org/bhch/beak/)(primary)
+[http://bitbucket.org/bhch/beak/](http://bitbucket.org/bhch/beak/)(primary)  
 [http://github.com/bhch/beak/](http://github.com/bhch/beak/)(mirror)
 
 ## Demo & Docs
