@@ -387,9 +387,13 @@ h6 {
 }
 h1, h2, h3, h4, h5, h6 {
     font-weight: normal;
-    margin-top: 50px;
-    margin-bottom: 25px;
+    margin-top: 40px;
+    margin-bottom: 15px;
+    padding: 10px 0;
     font-family: sans-serif;
+}
+:target {
+    background: #fffdc7;
 }
 hr {
     border: none;
