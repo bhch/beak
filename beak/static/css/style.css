@@ -392,6 +392,18 @@ h1, h2, h3, h4, h5, h6 {
     padding: 10px 0;
     font-family: sans-serif;
 }
+.headerlink {
+    margin-left: 15px;
+    visibility: hidden;
+}
+h1:hover .headerlink, 
+h2:hover .headerlink,
+h3:hover .headerlink, 
+h4:hover .headerlink,
+h5:hover .headerlink,
+h6:hover .headerlink {
+    visibility: visible;
+}
 :target {
     background: #fffdc7;
 }
