@@ -2,17 +2,30 @@
     <p>
         &copy; 
         <!-- Use JS to render year of copyright-->
-        <script>document.write(new Date().getFullYear())</script> 
-        John Doe
+        <script>document.write(new Date().getFullYear())</script>
+        {% for title, link in FOOTER_ITEMS %}
+            {% if not title and not link %}
+                <!-- middot spacer-->
+                &nbsp;&middot;&nbsp;
+            {% endif %}
 
-        <!-- middot spacer-->
-        &nbsp;&middot;&nbsp;
+            {% if title and not link %}
+                <!-- plain text -->
+                {{ title }}
+            {% endif %}
 
-        made with <a href="http://bitbucket.org/bhch/beak/">beak</a>
+            {% if title and link %}
+                <!-- link -->
+                <a href="{{ link }}">{{ title }}</a>
+            {% endif %}
+        {% endfor %}
 
-        <!-- middot spacer-->
-        &nbsp;&middot;&nbsp;
-        
-        powered by <a href="http://blog.getpelican.com">Pelican</a>
+        {% if not HIDE_POWERED_BY %}
+            <!-- middot spacer-->
+            &nbsp;&middot;&nbsp;
+
+            powered by <a href="http://blog.getpelican.com">Pelican</a> and 
+            <a href="https://github.com/bhch/beak/">beak</a>
+        {% endif %}
     </p>
 </div>
